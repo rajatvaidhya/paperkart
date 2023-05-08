@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const JWT_SEC = "enclave";
+const JWT_SEC = process.env.JWT_SEC;
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const Item = require("../models/Item");
