@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-async function connectToMongo() {
+function connectToMongo() {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
+    mongoose.connect("mongodb+srv://vrinxsystem:rajat-123@cluster0.zkbwolf.mongodb.net/leshley", {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });

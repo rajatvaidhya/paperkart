@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./Navbar";
+import Navbar from "../Navbar";
 import "./MyCart.css";
-import CartCard from "./CartCard";
+import CartCard from "../CartCard";
 
 const MyCart = () => {
   const [cartItems, setCartItems] = useState([]);

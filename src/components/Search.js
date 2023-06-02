@@ -1,50 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Search.css";
+import {useNavigate} from "react-router-dom";
 
 const Search = () => {
+  const [partName, setPartName] = useState("");
+  const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    setPartName(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    navigate(`/search/${partName}`);
+  }
+
   return (
     <>
-      <div
-        className="search"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "15rem",
-        }}
-      >
-        <form>
-          <div
-            className="search-input"
-            style={{ display: "flex", flexDirection: "row" }}
-          >
+      <div className="search">
+        <div>
+          <form method="POST" action="/" onSubmit={handleSubmit}>
             <input
-              type="text"
-              placeholder="Search for spare parts..."
-              name="search"
-              style={{ fontSize: "1.3rem", border: "none" }}
+              className="search-input"
+              placeholder="Search for parts"
+              onChange={handleChange}
+              value={partName}
             />
-            <i
-              className="fa-solid fa-magnifying-glass"
-              style={{
-                display: "flex",
-                marginLeft: "3rem",
-                alignItems: "center",
-                fontSize: "1.8rem",
-                cursor: "pointer",
-              }}
-            ></i>
-            <i
-              className="fa-solid fa-camera"
-              style={{
-                display: "flex",
-                marginLeft: "3rem",
-                alignItems: "center",
-                fontSize: "1.8rem",
-                cursor: "pointer",
-              }}
-            ></i>
-          </div>
-        </form>
+          </form>
+        </div>
+        <div>
+          <i className="fa-solid fa-camera"></i>
+        </div>
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const JWT_SEC = process.env.JWT_SEC;
+const JWT_SEC = "enclave";
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const Item = require("../models/Item");
@@ -59,9 +59,9 @@ router.get("/allCartItems", async (req, res) => {
     console.log(userId);
 
     const user = await User.findById(userId);
-    console.log(user);
+    // console.log(user);
 
-    console.log(user.cart);
+    // console.log(user.cart);
 
     const promises = user.cart.map(itemId => Item.findById(itemId));
     const cartProducts = await Promise.all(promises);
@@ -90,6 +90,13 @@ router.delete("/removeItem/:itemId", async(req,res)=>{
     user.cart = user.cart.filter((itemId) => itemId.toString() !== req.params.itemId);
     await user.save();
     res.json({ message: 'Item removed from cart successfully' });
+})
+
+router.post("/searchItem", async(req,res)=>{
+
+  const part = req.body.title;
+  const searchedItem = await Item.find({title:part});
+  res.json(searchedItem);
 })
 
 

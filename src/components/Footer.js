@@ -26,10 +26,10 @@ const Footer = () => {
             <h2>Quick Links</h2>
             <ul>
                 <li>Careers</li>
-                <li>About us</li>
-                <li>Privacy Policy</li>
-                <li>Shipping and Returns</li>
-                <li>Terms and Conditions</li>
+                <Link to="/about" style={{color:'black'}}><li>About us</li></Link>
+                <Link to="/privacy" style={{color:'black'}}><li>Privacy Policy</li></Link>
+                <Link to="/shipping-information" style={{color:'black'}}><li>Shipping and Returns</li></Link>
+                <Link to="/services" style={{color:'black'}}><li>Terms and Conditions</li></Link>
             </ul>
           </div>
           <div className="follow-relay">

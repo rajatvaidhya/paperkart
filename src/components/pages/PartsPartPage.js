@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useParams } from "react-router-dom";
-import Navbar from "./Navbar"
-import Card2 from "./Card2";
+import Navbar from "../Navbar"
+import Card2 from "../Card2";
 
 const PartsPartPage = () => {
   const { state } = useLocation();
