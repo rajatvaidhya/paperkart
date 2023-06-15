@@ -24,6 +24,7 @@ const PartsPartPage = () => {
             title={part.title}
             image={part.image}
             description={part.description}
+            price={part.price}
           />
         ))}
       </div>

@@ -58,12 +58,12 @@ const Signup = () => {
           >
             Create your account
           </h3>
-          <input type="text" onChange={nameChange} placeholder="full name" className="box" />
-          <input type="email" onChange={emailChange} placeholder="email" className="box" />
-          <input type="password" onChange={passChange} placeholder="password" className="box" />
+          <input type="text" onChange={nameChange} placeholder="Full name" className="box" />
+          <input type="email" onChange={emailChange} placeholder="Email" className="box" />
+          <input type="password" onChange={passChange} placeholder="Password" className="box" />
           <button className="btn" onClick={handleSubmit}>Submit</button>
           <p style={{ marginTop: "1rem", fontSize: "1.3rem" }}>
-            or signup with
+            Or Signup With
           </p>
           <div className="buttons">
             <i className="fa-brands fa-google"></i>

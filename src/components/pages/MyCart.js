@@ -44,6 +44,7 @@ const MyCart = () => {
               title={product.title}
               image={product.image}
               description={product.description}
+              price={product.price}
             />
           ))}
         </div>

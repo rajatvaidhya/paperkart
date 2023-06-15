@@ -27,7 +27,7 @@ const Card = (props) => {
 
             <div style={{display:'flex', flexDirection:'row', marginTop:'1rem', alignItems:'baseline', justifyContent:'space-between'}}>
             <h2 style={{textAlign:'left', marginLeft:'2rem', fontSize:'2rem'}}>{props.item.title}</h2>
-            <h2 style={{marginRight:'2rem', color:'green', fontSize:'1.7rem'}}>$3.44</h2>
+            <h2 style={{marginRight:'2rem', color:'green', fontSize:'1.7rem'}}>${props.item.price}</h2>
 
             </div>
             <h4 style={{textAlign:'left', marginLeft:'2rem', marginTop:'0.4rem', fontSize:'1.3rem'}}>{props.item.description}</h4>

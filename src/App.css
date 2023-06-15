@@ -22,7 +22,7 @@
     outline: red;
     border: none;
     text-decoration: none;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     /*Capitalize saare words ke pehle letter lo capital letter mai convert krdega */
     transition: all .2s ease-in-out;
 }
@@ -301,9 +301,6 @@ button[type="submit"] {
 }
 
 @media only screen and (max-width: 600px) {
-    body {
-        margin: 20px;
-    }
     form {
         flex-direction: column;
         max-width: 400px;
@@ -319,11 +316,9 @@ button[type="submit"] {
 }
 
 
-/* vedant */
 
 .container .fa {
     width: 5px;
-    /* margin: 5px; */
     padding: 0px;
     color: white;
 }

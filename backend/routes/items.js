@@ -59,9 +59,6 @@ router.get("/allCartItems", async (req, res) => {
     console.log(userId);
 
     const user = await User.findById(userId);
-    // console.log(user);
-
-    // console.log(user.cart);
 
     const promises = user.cart.map(itemId => Item.findById(itemId));
     const cartProducts = await Promise.all(promises);

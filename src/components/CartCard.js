@@ -40,7 +40,7 @@ const CartCard = (props) => {
           <h2
             style={{ marginRight: "2rem", color: "green", fontSize: "1.7rem" }}
           >
-            $3.44
+            ${props.price}
           </h2>
         </div>
         <h4

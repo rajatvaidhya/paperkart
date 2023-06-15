@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="quick-links">
             <h2>Quick Links</h2>
             <ul>
-                <li>Careers</li>
+                <Link to="/contact" style={{color:'black'}}><li>Contact Us</li></Link>
                 <Link to="/about" style={{color:'black'}}><li>About us</li></Link>
                 <Link to="/privacy" style={{color:'black'}}><li>Privacy Policy</li></Link>
                 <Link to="/shipping-information" style={{color:'black'}}><li>Shipping and Returns</li></Link>
@@ -33,7 +33,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="follow-relay">
-            <h2>Follow us at</h2>
+            <h2>Follow us</h2>
             <div className="follow-relay-svg">
             <i className="fa-brands fa-facebook"></i>
             <i className="fa-brands fa-instagram"></i>

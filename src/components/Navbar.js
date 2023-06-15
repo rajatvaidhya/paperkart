@@ -1,5 +1,6 @@
 import React from "react";
 import {Link, useNavigate} from 'react-router-dom'
+import HamburgerMenu from "./Hamburger";
 
 const Navbar = () => {
 
@@ -13,14 +14,14 @@ const Navbar = () => {
   return (
     <>
       <header className="header">
-        <div id="menu-btn" className="fas fa-bars"></div>
+        <HamburgerMenu/>
         <Link to="/" className="logo">
           <span>Gururaj</span>Spare's
         </Link>
         <nav className="navbar">
           <Link to="/" style={{fontSize:'1.6rem'}}>Home</Link>
           <Link to="/services" style={{fontSize:'1.6rem'}}>Services</Link>
-          <Link to="/reviews" style={{fontSize:'1.6rem'}}>Reviews</Link>
+          <Link to="/about" style={{fontSize:'1.6rem'}}>About</Link>
           <Link to="/contact" style={{fontSize:'1.6rem'}}>Contact Us</Link>
         </nav>
 

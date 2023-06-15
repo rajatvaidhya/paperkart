@@ -62,20 +62,20 @@ const Login = () => {
           <input
             type="email"
             onChange={emailChange}
-            placeholder="email"
+            placeholder="Email"
             className="box"
           />
           <input
             type="password"
             onChange={passChange}
-            placeholder="password"
+            placeholder="Password"
             className="box"
           />
           <p style={{ marginTop: "1rem", fontSize: "1.3rem" }}>
-            Forget password? <Link to="/">Click here!</Link>
+            Forget password? <Link to="/login">Click here!</Link>
           </p>
           <button className="btn" onClick={handleSubmit}>Submit</button>
-          <p style={{ marginTop: "1rem", fontSize: "1.3rem" }}>or login with</p>
+          <p style={{ marginTop: "1rem", fontSize: "1.3rem" }}>Or Login With</p>
           <div className="buttons">
             <i className="fa-brands fa-google"></i>
             <i className="fa-brands fa-facebook"></i>

@@ -23,7 +23,6 @@ h1
 @media screen and (max-width: 767px) {
     .category-cards-grid {
         justify-content: center;
-        gap: 2rem;
     }
 
     .category-cards-grid .category-card {

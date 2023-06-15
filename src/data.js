@@ -10,23 +10,26 @@ export const data=[
                 "image": "https://picsum.photos/300/300",
                 "parts" :[
                     {
-                        "id":'6454d7f14eccb42f96febccc',
+                        "id":'648b4706c6246996d90bf657',
                         "title":"Timing Belt",
                         "image": "https://picsum.photos/300/300",
-                        "description":"description"
+                        "description":"This is Timing Belt",
+                        "price":"3.59"
                         
                     },
                     {
-                        "id":'6454daf44eccb42f96febccd',
+                        "id":'648b4769c6246996d90bf658',
                         "title":"Timing Belt Kit",
                         "image": "https://picsum.photos/300/300",
-                        "description":"description"
+                        "description":"Timing Belt Kit",
+                        "price":"3.59"
                     },
                     {
-                        "id":'6454db3e4eccb42f96febcce',
+                        "id":'648b47b0c6246996d90bf659',
                         "title":"V Belt",
                         "image": "https://picsum.photos/300/300",
-                        "description":"description"
+                        "description":"This is V Belt",
+                        "price":"3.59"
                     }
                 ]
             },
@@ -36,47 +39,33 @@ export const data=[
                 "image": "https://picsum.photos/300/300",
                 "parts" :[
                     {
-                        "id":'6454db704eccb42f96febccf',
+                        "id":'648b47fcc6246996d90bf65a',
                         "title":"Front Brake Pads",
                         "image": "https://picsum.photos/300/300",
-                        "description":"description"
+                        "description":"This is FBP",
+                        "price":"3.59"
                     },
                     {
-                        "id":'6454dba34eccb42f96febcd0',
+                        "id":'648b483ec6246996d90bf65b',
                         "title":"Brake Repair Kit",
                         "image": "https://picsum.photos/300/300",
-                        "description":"description"
+                        "description":"This is BRK",
+                        "price":"3.59"
                     },
                     {
-                        "id":'6454e5fca965e6a419f95ddf',
-                        "title":"Brake Shoes",
+                        "id":'648b4885c6246996d90bf65c',
+                        "title":"Brake Shoe",
                         "image": "https://picsum.photos/300/300",
-                        "description":"description"
+                        "description":"This is brake shoe",
+                        "price":"3.59"
                     },
                     {
-                        "id":'6457ed846a5aff98987902a5',
+                        "id":'648b48cbc6246996d90bf65d',
                         "title":"Brake Fluid",
                         "image": "https://picsum.photos/300/300",
-                        "description":"description"
-                    },
-                    {
-                        "id":'6457f6f8dd20d420d69e9e94',
-                        "title":"Drum Brake",
-                        "image": "https://picsum.photos/300/300",
-                        "description":"description"
-                    },
-                    {
-                        "id":'6457f736dd20d420d69e9e95',
-                        "title":"Front Brake Disc",
-                        "image": "https://picsum.photos/300/300",
-                        "description":"description"
-                    },
-                    {
-                        "id":'6457f834dd20d420d69e9e97',
-                        "title":"Rear Brake Disc",
-                        "image": "https://picsum.photos/300/300",
-                        "description":"description"
-                    },
+                        "description":"This is brake fluid",
+                        "price":"3.59"
+                    }
                 ]
             },
         ]
