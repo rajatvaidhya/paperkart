@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 function connectToMongo() {
   try {
-    mongoose.connect("mongodb+srv://vrinxsystem:rajat-123@cluster0.zkbwolf.mongodb.net/leshley", {
+    mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });
