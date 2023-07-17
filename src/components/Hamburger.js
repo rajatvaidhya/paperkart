@@ -12,7 +12,7 @@ const HamburgerMenu = () => {
         </button>
         <ul className={isOpen ? 'menu open' : 'menu'}>
           <li><i class="fa-solid fa-house"></i> <Link to="/" style={{color:'red'}}>Home</Link></li>
-          <li><i class="fa-solid fa-gears"></i> <Link to="/services" style={{color:'red'}}>Services</Link></li>
+          <li><i class="fas fa-cog"></i> <Link to="/services" style={{color:'red'}}>Services</Link></li>
           <li><i class="fa-regular fa-star"></i> <Link to="/about" style={{color:'red'}}>About</Link></li>
           <li><i class="fa-solid fa-address-book"></i> <Link to="/contact" style={{color:'red'}}>Contacts</Link></li>
         </ul>

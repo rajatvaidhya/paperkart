@@ -35,7 +35,7 @@ const MyCart = () => {
       <Navbar />
       <div className="mycart-container">
         <h1>
-          <span style={{ color: "black" }}>My</span> Cart
+          <span style={{ color: "black" }}> <i className="fa-solid fa-cart-shopping" style={{marginRight:'1rem'}}></i> My</span> Cart
         </h1>
         <div className="card-container">
           {cartItems.map((product) => (

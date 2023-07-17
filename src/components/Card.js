@@ -1,39 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Card.css'
+import ProductModal from './ProductModal'
 
 const Card = (props) => {
 
-  const handleAddCart = async() => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const token = localStorage.getItem('token');
-
-    const response = fetch("http://localhost:5000/api/items/addItem", {
-      method:'POST',
-      headers : {
-        "Content-Type":"application/json",
-        "auth-token":token
-      },
-      body: JSON.stringify({Itemkey:props.Itemkey, title:props.item.title, image:props.item.image, description:props.item.description}),
-    })
-
-    alert("Added to Cart");
-    console.log(response);
+  const handleOpenModal = () => {
+    setIsModalOpen(!isModalOpen);
   }
 
   return (
-    <div className='card'>
-        <div className='card-design'>
-            <img src={props.item.image} alt="card-image"/>
+    <div className='card' style={{width:'100%'}}>
+      {isModalOpen && <ProductModal flag={setIsModalOpen} Itemkey={props.Itemkey} title={props.item.title} description={props.item.description} image={props.item.image} price={props.item.price} quantity={props.item.quantity}/>}
+        <div className='card-design' style={{width:'100%'}}>
+            <img src={props.item.image} style={{width:'94%', height:'400px'}} alt="card-image"/>
 
             <div style={{display:'flex', flexDirection:'row', marginTop:'1rem', alignItems:'baseline', justifyContent:'space-between'}}>
-            <h2 style={{textAlign:'left', marginLeft:'2rem', fontSize:'2rem'}}>{props.item.title}</h2>
-            <h2 style={{marginRight:'2rem', color:'green', fontSize:'1.7rem'}}>${props.item.price}</h2>
+            <h2 style={{textAlign:'left', marginLeft:'2rem', fontSize:'2rem', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{props.item.title}</h2>
+            <h2 style={{marginRight:'2rem', color:'green', fontSize:'1.7rem'}}>₹{props.item.price}</h2>
 
+            
             </div>
-            <h4 style={{textAlign:'left', marginLeft:'2rem', marginTop:'0.4rem', fontSize:'1.3rem'}}>{props.item.description}</h4>
-            <button className="btn" style={{marginTop:'2rem', width:'90%', marginBottom:'2rem', fontSize:'1.3rem'}} onClick={handleAddCart}>
+            <h4 style={{textAlign:'left', marginLeft:'2rem', marginTop:'0.4rem', fontSize:'1.3rem', whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}>{props.item.description}</h4>
+            <button className="btn" style={{marginTop:'2rem', width:'90%', marginBottom:'2rem', fontSize:'1.3rem'}} onClick={handleOpenModal}>
             <i className="fa-solid fa-cart-shopping" style={{marginRight:'1rem'}}></i>
-            Add to Cart</button>
+            Product Details</button>
         </div>
     </div>
   )

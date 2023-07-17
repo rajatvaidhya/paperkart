@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const PartCard = (props) => {
   return (
-    <Link to={`/category/part/${props.title}`} state={props.parts}>
+    <Link to={`/category/part/${props.title}`}>
       <div className="category-cards-container">
         <div>
           <img src={props.src} alt="category-image" />

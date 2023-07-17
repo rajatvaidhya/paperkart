@@ -31,8 +31,7 @@ const SearchPage = () => {
     <>
       <Navbar />
       <div className="parts">
-        <span>You have searched for : </span>
-        <span style={{ color: "red" }}>{title}</span>
+      Search for <span style={{ color: "red" }}>{title}</span>
       </div>
 
       <div className="search-cards-container">

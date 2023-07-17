@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 function connectToMongo() {
   try {
-    mongoose.connect(process.env.MONGO_URI, {
+    mongoose.connect(process.env.MONGOURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });

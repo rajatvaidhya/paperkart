@@ -31,11 +31,34 @@ router.post("/addItem", async (req, res) => {
     console.log(userId);
 
     const user = await User.findById(userId);
-    console.log(user);
-    user.cart.push(req.body.Itemkey);
-    await user.save();
 
-    res.status(200).json({ msg: "Successfully saved item" });
+    var flag = 1;
+
+    for(var i=0; i<user.cart.length; i++)
+    {
+      if(user.cart[i]._id.toString() === req.body.Itemkey)
+      {
+        flag = 0;
+        break;
+      }
+    }
+
+    if(flag)
+    {
+      user.cart.push(req.body.Itemkey);
+      await user.save();
+      res.status(200).json({ 
+        msg: "Successfully saved item",
+        success:true 
+      });
+    }
+    else
+    {
+      res.json({
+        msg:'Already present in cart.',
+        success:false
+      })
+    }
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Internal server error" });
@@ -95,6 +118,63 @@ router.post("/searchItem", async(req,res)=>{
   const searchedItem = await Item.find({title:part});
   res.json(searchedItem);
 })
+
+
+router.get("/fetchAllCategories", async(req, res)=>{
+
+  const searchedItem = await Item.find({});
+  let categories = [];
+
+  for(var i=0; i<searchedItem.length; i++) {
+    categories.push(searchedItem[i].category);
+  }
+
+  const uniqueArray = Array.from(new Set(categories));
+  res.json(uniqueArray);
+})
+
+router.post("/fetchAllSubCategories", async(req, res)=>{
+
+  const cate = req.body.category;
+  const searchedItem = await Item.find({});
+  let subCategories = [];
+
+  for(var i=0; i<searchedItem.length; i++) {
+    if(searchedItem[i].category === cate) {
+      subCategories.push(searchedItem[i].subCategory);
+    }
+  }
+
+  const uniqueArray = Array.from(new Set(subCategories));
+  res.json(uniqueArray);
+})
+
+
+router.post("/addAdminItems", async (req, res) => {
+  try {
+    const newItem = await Item.create({
+      title: req.body.title,
+      description: req.body.description,
+      image: req.body.image,
+      category: req.body.category,
+      subCategory: req.body.subCategory,
+      price: req.body.price,
+      quantity: req.body.quantity,
+      categoryImage: 'https://picsum.photos/300/300',
+      subCategoryImage: 'https://picsum.photos/300/300',
+    });
+
+    res.status(200).json({
+      msg: 'Item added successfully',
+      newItem,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      msg: 'Internal Server Error',
+    });
+  }
+});
 
 
 module.exports = router;

@@ -15,8 +15,8 @@ const Navbar = () => {
     <>
       <header className="header">
         <HamburgerMenu/>
-        <Link to="/" className="logo">
-          <span>Gururaj</span>Spare's
+        <Link to="/" className="logo" style={{letterSpacing:'-1px'}}>
+          <span>Gururaj</span>Spares
         </Link>
         <nav className="navbar">
           <Link to="/" style={{fontSize:'1.6rem'}}>Home</Link>

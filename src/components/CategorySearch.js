@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CategorySearch.css";
 import CategoryCards from "./CategoryCards";
-import { data } from "../data";
+
 
 const CategorySearch = () => {
+
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/items/getitems')
+      .then(response => response.json())
+      .then(items => {
+        const uniqueItems = Object.values(items.reduce((accumulator, item) => {
+          if (!accumulator[item.category]) {
+            accumulator[item.category] = item;
+          }
+          return accumulator;
+        }, {}));
+        setItems(uniqueItems);
+      })
+      .catch(error => console.error(error));
+  }, []);
+
+
   return (
     <div className="category-search-container">
       <h1>
@@ -11,12 +30,10 @@ const CategorySearch = () => {
       </h1>
 
       <div className="category-cards-grid">
-        {data.map((category) => (
+        {items.map((item) => (
           <CategoryCards
-            key={category.id}
-            title={category.title}
-            src={category.image}
-            parts={category.parts}
+            title={item.category}
+            src={item.categoryImage}
           />
         ))}
       </div>

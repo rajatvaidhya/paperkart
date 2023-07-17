@@ -18,10 +18,65 @@ const CartCard = (props) => {
     alert("Item Removed Succesfully!");
   };
 
+  const handleBuyProduct = async () => {
+
+    const keyRes = await fetch('http://localhost:5000/api/getKey', {
+      method:'GET',
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+
+    const OriginalKey = await keyRes.json()
+    console.log("Key", OriginalKey.key);
+
+    const response = await fetch(
+      `http://localhost:5000/api/paymentRoute/checkout`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          amount:props.price
+        }),
+      }
+    );
+
+    const objRes = await response.json();
+    console.log("ObjRes", objRes.order.id);
+    console.log(props.price);
+
+    const options = {
+      "key": OriginalKey.key,
+      "amount": Number(props.price * 100),
+      "currency": "INR",
+      "name": "Gururaj Spares",
+      "description": "Test Transaction",
+      "image": "https://example.com/your_logo",
+      "order_id": objRes.order.id,
+      "callback_url": "http://localhost:5000/api/paymentRoute/payment/verification",
+      "prefill": {
+          "name": "Gaurav Kumar",
+          "email": "gaurav.kumar@example.com",
+          "contact": "9000090000"
+      },
+      "notes": {
+          "address": "Razorpay Corporate Office"
+      },
+      "theme": {
+          "color": "#f20707"
+      }
+  };
+    
+    const razorpay = new window.Razorpay(options);
+    razorpay.open();    
+  }
+
   return (
     <div className="card cart-card">
       <div className="card-design">
-        <img src={props.image} alt="card-image" />
+        <img src={props.image} alt="card-image" style={{height:'250px'}}/>
 
         <div
           style={{
@@ -33,14 +88,14 @@ const CartCard = (props) => {
           }}
         >
           <h2
-            style={{ textAlign: "left", marginLeft: "2rem", fontSize: "2rem" }}
+            style={{ textAlign: "left", marginLeft: "2rem", fontSize: "2rem", whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'}}
           >
             {props.title}
           </h2>
           <h2
             style={{ marginRight: "2rem", color: "green", fontSize: "1.7rem" }}
           >
-            ${props.price}
+            ₹{props.price}
           </h2>
         </div>
         <h4
@@ -49,6 +104,7 @@ const CartCard = (props) => {
             marginLeft: "2rem",
             marginTop: "0.4rem",
             fontSize: "1.3rem",
+            whiteSpace:'nowrap', overflow:'hidden', textOverflow:'ellipsis'
           }}
         >
           {props.description}
@@ -71,12 +127,13 @@ const CartCard = (props) => {
               marginBottom: "2rem",
               fontSize: "1.2rem",
             }}
+            onClick={handleBuyProduct}
           >
             <i
               className="fas fa-shopping-bag"
               style={{ marginRight: "1rem" }}
             ></i>
-            Buy This Product
+            Buy
           </button>
           <button
             className="btn"
@@ -95,7 +152,7 @@ const CartCard = (props) => {
               className="fa-solid fa-circle-minus"
               style={{ marginRight: "1rem" }}
             ></i>
-            Remove from Cart
+            Remove
           </button>
         </div>
       </div>
